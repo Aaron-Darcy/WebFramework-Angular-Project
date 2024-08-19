@@ -6,8 +6,8 @@ This project is part of the Web Framework Development module, focusing on creati
 ## Project Structure
 - **Web Framework Submission Docs**: Includes checklist for the project
 - **Web Framework Code Folder**:
-  - **Angular Project Directory**: `C:\Users\aaron\Desktop\Angular Project\Web Framework Code\a2ng_`
-  - **REST API Directory**: `C:\Users\aaron\Desktop\Angular Project\Web Framework Code\a2restapi_`
+  - **Angular Project Directory**: ` \Web Framework Code\a2ng_`
+  - **REST API Directory**: ` \Web Framework Code\a2restapi_`
 
 ### Angular Project (`a2ng_`)
 This is the frontend of the application, built with Angular. It includes the following features:
