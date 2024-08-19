@@ -1,0 +1,35 @@
+<!-- teams.component.html -->
+<div class="container mt-3">
+  <!-- Header -->
+  <h2>Teams</h2>
+  <!-- Table displaying team information -->
+  <table class="table table-striped">
+    <!-- Table header -->
+    <thead>
+      <tr>
+        <!-- Column for team logo -->
+        <th>Logo</th>
+        <!-- Column for team name -->
+        <th>Name</th>
+        <!-- Column for Wiki -->
+        <th>Info</th>
+      </tr>
+    </thead>
+    <!-- Table body -->
+    <tbody>
+      <!-- Iterate over teams array to display each team -->
+      <tr *ngFor="let team of teams">
+        <!-- Display team logo -->
+        <td>
+          <img src="/assets/logos/{{ team.name }}.png" alt="{{ team.name }}" width="50">
+        </td>
+        <!-- Display team name -->
+        <td>{{ team.name }} ({{ team.name.substr(0, 3).toUpperCase() }})</td>
+        <!-- Link to Wikipedia page  -->
+        <td>
+          <a href="https://en.wikipedia.org/wiki/{{team.name}}_GAA" target="_blank">Wiki</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

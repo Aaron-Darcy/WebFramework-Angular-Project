@@ -1,0 +1,34 @@
+<!-- The HTML structure for the PlayersComponent -->
+<div class="container mt-3">
+  <h2>Players</h2>
+  <!-- Dropdown to filter players by team -->
+  <select class="form-select" aria-label="Team filter" (change)="filterByTeam($event)">
+    <option value="All">All Teams</option>
+    <!-- Use string binding for the value -->
+    <option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</option>
+  </select>
+
+  <!-- Table to display players -->
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th>Team</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Matches</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop over the players to create table rows -->
+      <tr *ngFor="let player of players">
+        <td>
+          <img [src]="'/assets/logos/' + getTeamName(player.teamID) + '.png'" [alt]="getTeamName(player.teamID)" width="30" />
+          {{ getTeamName(player.teamID) }}
+        </td>
+        <td>{{ player.name }} (#{{ player.squadNumber }})</td>
+        <td>{{ player.age }}</td>
+        <td>{{ player.matches }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

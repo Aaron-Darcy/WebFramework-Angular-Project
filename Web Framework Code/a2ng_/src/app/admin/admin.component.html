@@ -1,0 +1,54 @@
+<div class="container mt-3">
+  <h2>Admin Results</h2>
+  <div class="mb-3">
+      <!-- Dropdown for selecting current round -->
+      <select class="form-select" [(ngModel)]="currentRound" (ngModelChange)="onRoundChange()">
+          <option *ngFor="let round of [].constructor(totalRounds) let i = index" [value]="i+1">Round {{ i + 1 }}</option>
+      </select>
+  </div>
+
+  <!-- Admin Results Table -->
+  <table class="table table-striped mt-3 w-100"> <!-- Ensure full width -->
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Round</th>
+          <th>Team1</th>
+          <th>Score</th>
+          <th>Team2</th>
+          <th>Division & Round</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate through results to display each row -->
+        <tr *ngFor="let result of results">
+          <td>{{ result.date }}</td>
+          <td>{{ result.round }}</td>
+          <td>
+            <!-- Display Team1 logo and name -->
+            <img [src]="'/assets/logos/' + result.team1 + '.png'" alt="{{ result.team1 }} logo" class="team-logo"> {{ result.team1 }}
+          </td>
+          <td>
+            <!-- Input fields for updating scores -->
+            <div class="d-flex">
+              <input type="text" class="form-control me-1" [(ngModel)]="result.team1Score" name="team1Score">
+              -
+              <input type="text" class="form-control ms-1" [(ngModel)]="result.team2Score" name="team2Score">
+            </div>
+          </td>
+          <td>
+            <!-- Display Team2 logo and name -->
+            {{ result.team2 }}
+            <img [src]="'/assets/logos/' + result.team2 + '.png'" alt="{{ result.team2 }} logo" class="team-logo">
+          </td>
+          <td>{{ 'D' + result.division + ' R' + result.round }}</td>
+          <td>
+            <!-- Buttons for updating and deleting results -->
+            <button class="btn btn-primary me-1" (click)="updateResult(result)">Update</button>
+            <button class="btn btn-primary me-1" (click)="deleteResult(result.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

@@ -1,0 +1,42 @@
+<div class="container mt-3">
+    <h2>Results</h2>
+    <div class="btn-group mb-3" role="group" aria-label="Round navigation">
+        <button type="button" class="btn btn-primary" (click)="goToPreviousRound()"><< Round {{ prevRound }}</button>
+        <button type="button" class="btn btn-primary" disabled>Round {{ currentRound }}</button>
+        <button type="button" class="btn btn-primary" (click)="goToNextRound()">Round {{ nextRound }} >></button>
+    </div>
+
+    <!-- Bind the select change event to the filterByTeam method and pass the $event object -->
+    <select class="form-select mb-3" [(ngModel)]="selectedTeam" (ngModelChange)="applyTeamFilter()">
+        <option value="">All Teams</option>
+        <option *ngFor="let team of teams" [value]="team.name">{{ team.name }}</option>
+      </select>
+      
+    <!-- Results Table -->
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Round</th>
+                <th>Team1</th>
+                <th>Score</th>
+                <th>Team2</th>
+                <th>Division & Round</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let result of filteredResults">
+                <td>{{ result.date }}</td>
+                <td>{{ result.round }}</td>
+                <td>
+                    <img [src]="'/assets/logos/' + result.team1 + '.png'" alt="{{ result.team1 }} Logo" class="team-logo"> {{ result.team1 }}
+                </td>
+                <td>{{ result.team1Score }} - {{ result.team2Score }}</td>
+                <td>
+                    {{ result.team2 }} <img [src]="'/assets/logos/' + result.team2 + '.png'" alt="{{ result.team2 }} Logo" class="team-logo">
+                </td>
+                <td>{{ 'D' + result.division + ' & R' + result.round }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

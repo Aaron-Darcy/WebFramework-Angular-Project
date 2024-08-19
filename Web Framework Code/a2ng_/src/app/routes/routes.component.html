@@ -1,0 +1,65 @@
+<!-- routes.component.html -->
+<!-- Container for displaying routes information -->
+<div class="container mt-3">
+  <!-- Title for the routes section -->
+  <h2>Routes</h2>
+  <!-- Table for displaying route details -->
+  <table class="table">
+    <thead>
+      <!-- Table header row -->
+      <tr>
+        <!-- Column headers -->
+        <th>route</th>
+        <th>description</th>
+        <th>URL</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table body with route details -->
+      <tr>
+        <!-- Row for '/teams' route -->
+        <td>/teams</td>
+        <td>GET teams</td>
+        <!-- URL with link to '/teams' route -->
+        <td><a href="http://localhost:3000/teams" target="_blank">http://localhost:3000/teams</a></td>
+        <!-- Button to trigger 'getTeams()' method -->
+        <td><button class="btn btn-primary" (click)="getTeams()">GET</button></td>
+      </tr>
+      <tr>
+        <!-- Row for '/players' route -->
+        <td>/players</td>
+        <td>GET players</td>
+        <!-- URL with link to '/players' route -->
+        <td><a href="http://localhost:3000/players" target="_blank">http://localhost:3000/players</a></td>
+        <!-- Button to trigger 'getPlayers()' method -->
+        <td><button class="btn btn-primary" (click)="getPlayers()">GET</button></td>
+      </tr>
+      <tr>
+        <!-- Row for '/results/' route -->
+        <td>/results/</td>
+        <td>GET results</td>
+        <!-- URL with link to '/results/' route -->
+        <td><a href="http://localhost:3000/results" target="_blank">http://localhost:3000/results</a></td>
+        <!-- Button to trigger 'getResults()' method -->
+        <td><button class="btn btn-primary" (click)="getResults()" >GET</button></td>
+      </tr>
+      <tr>
+        <!-- Row for '/results/1' route -->
+        <td>/results/1</td>
+        <td>GET results by Round</td>
+        <!-- URL with link to '/results/1' route -->
+        <td><a href="http://localhost:3000/results/1" target="_blank">http://localhost:3000/results/1</a></td>
+        <!-- Button to trigger 'getResultsByRound(1)' method -->
+        <td><button class="btn btn-primary" (click)="getResultsByRound(1)">GET</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Section for displaying JSON data -->
+  <div class="container mt-3">
+    <!-- Title for the JSON data section -->
+    <h3>JSON data</h3>
+    <!-- Display JSON data using 'jsonData' variable -->
+    <pre>{{ jsonData | json }}</pre>
+  </div>
+</div>

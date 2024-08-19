@@ -1,0 +1,36 @@
+<!-- tables.component.html -->
+<!-- Container for displaying league table -->
+<div class="league-table-container">
+  <h1>Division 1</h1>
+  <!-- Table for displaying team standings -->
+  <table class="table">
+    <thead>
+      <!-- Table header row -->
+      <tr>
+        <!-- Column headers -->
+        <th scope="col">Pos</th>
+        <th scope="col">Team</th>
+        <th scope="col">Pd</th>
+        <th scope="col">W</th>
+        <th scope="col">D</th>
+        <th scope="col">L</th>
+        <th scope="col">DIFF</th>
+        <th scope="col">Pts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table body with team standings -->
+      <tr *ngFor="let team of standings; let i = index">
+        <!-- Row for each team with relevant stats-->
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ team.teamName }}</td>
+        <td>{{ team.played }}</td>
+        <td>{{ team.wins }}</td>
+        <td>{{ team.draws }}</td>
+        <td>{{ team.losses }}</td>
+        <td>{{ team.diff }}</td>
+        <td>{{ team.points }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

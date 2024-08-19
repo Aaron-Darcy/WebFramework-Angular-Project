@@ -1,0 +1,17 @@
+<div class="container mt-3">
+    <!-- Container for displaying statistics -->
+    <h2>Stats</h2> 
+    <div class="mb-3">
+        <!-- Dropdown menu to select a team -->
+        <select class="form-select" [(ngModel)]="selectedTeam" (ngModelChange)="onTeamSelect($event)">
+            <option [ngValue]="undefined">Select a team</option> <!-- Default option -->
+            <option *ngFor="let team of teams" [ngValue]="team.id">{{ team.name }}</option> <!-- Team options -->
+        </select>
+    </div>
+
+    <h3>{{ selectedTeamName }} Match Scores</h3>
+    <!-- Container for displaying the bar chart -->
+    <div id="bar-chart"></div>
+    <!-- Container for displaying the scatter plot -->
+    <div id="scatter-plot"></div>
+</div>
